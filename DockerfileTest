@@ -1,0 +1,17 @@
+# build complier image
+FROM  mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-test-env
+
+WORKDIR /app
+
+COPY AdapterPattern.sln ./
+COPY AdapterPattern/*.csproj ./AdapterPattern/
+COPY AdapterPattern.Test/*.csproj ./AdapterPattern.Test/
+
+RUN dotnet restore
+
+COPY ./AdapterPattern/. ./AdapterPattern/
+COPY ./AdapterPattern.Test/. ./AdapterPattern.Test/
+
+RUN dotnet publish -c Release -o out 
+
+ENTRYPOINT [ "dotnet", "test" ]

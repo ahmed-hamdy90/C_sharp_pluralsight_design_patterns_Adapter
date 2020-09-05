@@ -1,0 +1,7 @@
+AdapterPattern/[B|b]in/
+AdapterPattern/[O|o]bj/
+
+AdapterPattern.Test/[B|b]in/
+AdapterPattern.Test/[O|o]bj/
+
+.idea/
